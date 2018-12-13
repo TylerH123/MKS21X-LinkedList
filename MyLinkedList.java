@@ -5,11 +5,6 @@ public class MyLinkedList{
     private int data;
     private Node next, prev;
 
-    //constructor
-    //sset current node to the num
-    private Node(int num){
-      data = num;
-    }
     //returns the next node
     private Node next(){
       return next;
@@ -40,7 +35,26 @@ public class MyLinkedList{
     }
   }
 
-  
+  private Node start,end;
+  private int length;
+
+  //constructor
+  //default length = 0
+  //empty list
+  public MyLinkedList(){
+    length = 0;
+    start = new Node();
+    end = new Node();
+  }
+  //return size of list
+  public int size(){
+    return length;
+  }
+  public boolean add(int value){
+
+    return true;
+  }
+
   public String toString(){
     return "";
   }
