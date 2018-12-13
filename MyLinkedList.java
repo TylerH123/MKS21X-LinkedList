@@ -50,13 +50,25 @@ public class MyLinkedList{
   public int size(){
     return length;
   }
+  //make a new node that contains the value
+  //then set the end to the new node
   public boolean add(int value){
-
+    Node newNode = new Node();
+    newNode.setData(value);
+    end = newNode;
     return true;
   }
 
+  public int get(int index){
+    
+    return 1;
+  }
   public String toString(){
-    return "";
+    String out = "[";
+    for (int i = 0; i < length; i++){
+      out += get(i);
+    }
+    return out += "]";
   }
 
 }
