@@ -50,13 +50,16 @@ public class MyLinkedList{
   //then set the end to the new node
   //if the first element is null, then set the start to value
   public boolean add(int value){
+    Node newNode = new Node();
+    newNode.setData(value);
     if (start == null){
       start = new Node();
-      start.setData(value);
+      end = new Node();
+      start = newNode;
+      end = newNode;
       length++;
       return true;
     }
-    Node newNode = new Node();
     newNode.setData(value);
     end.setNext(newNode);
     newNode.setPrev(end);
