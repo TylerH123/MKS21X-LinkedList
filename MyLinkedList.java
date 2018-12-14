@@ -42,9 +42,6 @@ public class MyLinkedList{
   //default length = 0
   //empty list
   public MyLinkedList(){
-    length = 0;
-    start = new Node();
-    end = new Node();
   }
   //return size of list
   public int size(){
@@ -52,7 +49,14 @@ public class MyLinkedList{
   }
   //make a new node that contains the value
   //then set the end to the new node
+  //if the first element is null, then set the start to value
   public boolean add(int value){
+    if (start == null){
+      start = new Node();
+      start.setData(value);
+      length++;
+      return true;
+    }
     Node newNode = new Node();
     newNode.setData(value);
     end = newNode;
@@ -60,13 +64,15 @@ public class MyLinkedList{
   }
 
   public int get(int index){
-    
+
     return 1;
   }
   public String toString(){
     String out = "[";
+    Node current = start;
     for (int i = 0; i < length; i++){
-      out += get(i);
+      out += current.toString();
+      current.next();
     }
     return out += "]";
   }
