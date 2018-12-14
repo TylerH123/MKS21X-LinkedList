@@ -75,14 +75,15 @@ public class MyLinkedList{
     }
     return 1;
   }
+  //string representation of the linked list
   public String toString(){
     String out = "[";
     Node current = start;
     for (int i = 0; i < length; i++){
-      out += current.toString();
+      out += current.toString() + ", ";
       current.next();
     }
-    return out += "]";
+    return out.substring(0, length - 2) + "]";
   }
 
 }
