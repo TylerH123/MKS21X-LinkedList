@@ -67,6 +67,19 @@ public class MyLinkedList{
   }
   public int set(int index, int value){
     if (index >= length || index < 0) throw new ArrayIndexOutOfBoundsException();
+    int idx = 0;
+    Node current = start;
+    Node tgt = new Node();
+    tgt.setData(value);
+    while(current != null){
+      if (idx == index-1){
+        current.setNext(tgt);
+      }
+      if (idx == index + 1){
+        current.setPrev(tgt);
+      }
+      idx++;
+    }
     return 1;
   }
   //if the current node is at the desired index, return that node, otherwise go next
