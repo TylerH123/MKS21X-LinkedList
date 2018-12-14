@@ -65,6 +65,9 @@ public class MyLinkedList{
     end = newNode;
     return true;
   }
+  //loops through the array until at the desired index
+  //then sets the next() of the previous node to the desired value
+  //also sets the prev() of the forward node to desired value
   public int set(int index, int value){
     if (index >= length || index < 0) throw new ArrayIndexOutOfBoundsException();
     int idx = 0;
@@ -79,8 +82,21 @@ public class MyLinkedList{
         current.setPrev(tgt);
       }
       idx++;
+      current = current.next();
     }
     return 1;
+  }
+  //loops through the linked list
+  //if the data of the current node is equal to the value then return true
+  public boolean contains(int value){
+    Node curr = start;
+    while (curr != null){
+      if(curr.getData() == value){
+        return true;
+      }
+      curr = curr.next();
+    }
+    return false;
   }
   //if the current node is at the desired index, return that node, otherwise go next
   private int get(int index){
