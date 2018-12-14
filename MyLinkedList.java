@@ -41,6 +41,8 @@ public class MyLinkedList{
   //constructor
   //empty list
   public MyLinkedList(){
+    start = new Node();
+    end = new Node();
   }
   //return size of list
   public int size(){
@@ -52,33 +54,32 @@ public class MyLinkedList{
   public boolean add(int value){
     Node newNode = new Node();
     newNode.setData(value);
-    if (start == null){
-      start = new Node();
-      end = new Node();
+    if (length == 0){
       start = newNode;
       end = newNode;
       length++;
       return true;
     }
-    newNode.setData(value);
     end.setNext(newNode);
     newNode.setPrev(end);
     end = newNode;
     return true;
   }
   public int set(int index, int value){
-
+    if (index >= length || index < 0) throw new ArrayIndexOutOfBoundsException();
     return 1;
   }
   //if the current node is at the desired index, return that node, otherwise go next
   private int get(int index){
     if (index >= length || index < 0) throw new ArrayIndexOutOfBoundsException();
     Node current = start;
-    for (int i = 0; i < length; i++){
-      if (i == index){
+    int idx = 0;
+    while(current != null){
+      if (idx == index){
         return current.getData();
       }
-      current.next();
+      current = current.next();
+      idx++;
     }
     return 0;
   }
