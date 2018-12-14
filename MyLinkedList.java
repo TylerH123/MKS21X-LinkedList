@@ -63,8 +63,16 @@ public class MyLinkedList{
     return true;
   }
 
+  //if the current node is at the desired index, return that node, otherwise go next
   public int get(int index){
-
+    if (index >= length || index < 0) throw new ArrayIndexOutOfBoundsException();
+    Node current = start;
+    for (int i = 0; i < length; i++){
+      if (i == index){
+        return current.getData();
+      }
+      current.next();
+    }
     return 1;
   }
   public String toString(){
