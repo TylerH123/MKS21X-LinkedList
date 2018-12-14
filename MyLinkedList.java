@@ -39,7 +39,6 @@ public class MyLinkedList{
   private int length;
 
   //constructor
-  //default length = 0
   //empty list
   public MyLinkedList(){
   }
@@ -59,12 +58,17 @@ public class MyLinkedList{
     }
     Node newNode = new Node();
     newNode.setData(value);
+    end.setNext(newNode);
+    newNode.setPrev(end);
     end = newNode;
     return true;
   }
+  public int set(int index, int value){
 
+    return 1;
+  }
   //if the current node is at the desired index, return that node, otherwise go next
-  public int get(int index){
+  private int get(int index){
     if (index >= length || index < 0) throw new ArrayIndexOutOfBoundsException();
     Node current = start;
     for (int i = 0; i < length; i++){
@@ -73,7 +77,7 @@ public class MyLinkedList{
       }
       current.next();
     }
-    return 1;
+    return 0;
   }
   //string representation of the linked list
   public String toString(){
