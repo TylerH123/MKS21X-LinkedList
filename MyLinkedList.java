@@ -99,7 +99,7 @@ public class MyLinkedList{
     return false;
   }
   //if the current node is at the desired index, return that node, otherwise go next
-  private int get(int index){
+  public int get(int index){
     if (index >= length || index < 0) throw new IndexOutOfBoundsException();
     Node current = start;
     int idx = 0;
@@ -156,7 +156,34 @@ public class MyLinkedList{
           length++;
         }
         tgt = tgt.next();
+        idx++;
       }
+    }
+  }
+  //get the nth node of the linked MyLinkedList
+  //similar to method get
+  private Node getNthNode(int idx){
+    if (idx >= length || idx < 0) throw new IndexOutOfBoundsException();
+    Node current = start;
+    int index = 0;
+    while (current != null){
+      if (index == idx){
+        return current;
+      }
+      current = current.next();
+      index++;
+    }
+  }
+
+  public int remove(int index){
+    if (index >= length || index < 0) throw new IndexOutOfBoundsException();
+    idx = 0;
+    Node current = start;
+    while(current != null){
+      if (idx == index - 1){
+        current.setNext(current.get(idx+1));
+      }
+      current = current.next();
     }
   }
   //string representation of the linked list
