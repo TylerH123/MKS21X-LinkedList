@@ -127,6 +127,9 @@ public class MyLinkedList{
     return -1;
   }
   //if length is 0 or at the end then add the value
+  //if index is 0 insert at the beginning and set the next to the old start. set the prev to the new value
+  //else at the deisred index set the previous node's next to the node with the desired value
+  //also set forward node's prev to the node with the desired value
   public void add(int index, int value){
     if (index >= length || index < 0) throw new IndexOutOfBoundsException();
     Node current = new Node();
@@ -136,7 +139,10 @@ public class MyLinkedList{
     }
     if (index == 0){
       Node tgt = start;
-
+      start = current;
+      start.setNext(tgt);
+      tgt.setPrev(start);
+      length++;
     }
     else{
       Node tgt = start;
