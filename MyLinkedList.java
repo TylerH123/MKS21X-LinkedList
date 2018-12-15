@@ -69,7 +69,7 @@ public class MyLinkedList{
   //then sets the next() of the previous node to the desired value
   //also sets the prev() of the forward node to desired value
   public int set(int index, int value){
-    if (index >= length || index < 0) throw new ArrayIndexOutOfBoundsException();
+    if (index >= length || index < 0) throw new IndexOutOfBoundsException();
     int idx = 0;
     Node current = start;
     Node tgt = new Node();
@@ -100,7 +100,7 @@ public class MyLinkedList{
   }
   //if the current node is at the desired index, return that node, otherwise go next
   private int get(int index){
-    if (index >= length || index < 0) throw new ArrayIndexOutOfBoundsException();
+    if (index >= length || index < 0) throw new IndexOutOfBoundsException();
     Node current = start;
     int idx = 0;
     while(current != null){
@@ -111,6 +111,47 @@ public class MyLinkedList{
       idx++;
     }
     return 0;
+  }
+  //loop through the linked list
+  //if the data at current is equal to value return the index
+  public int indexOf(int value){
+    int idx = 0;
+    Node curr = start;
+    while (curr != null){
+      if(curr.getData() == value){
+        return idx;
+      }
+      curr = curr.next();
+      idx++;
+    }
+    return -1;
+  }
+  //if length is 0 or at the end then add the value
+  public void add(int index, int value){
+    if (index >= length || index < 0) throw new IndexOutOfBoundsException();
+    Node current = new Node();
+    current.setData(value);
+    if (length == 0 || index == length - 1){
+      add(value);
+    }
+    if (index == 0){
+      Node tgt = start;
+
+    }
+    else{
+      Node tgt = start;
+      int idx = 0;
+      while (tgt != null){
+        if (idx == index -1){
+          tgt.setNext(current);
+        }
+        if (idx == index + 1){
+          tgt.setPrev(current);
+          length++;
+        }
+        tgt = tgt.next();
+      }
+    }
   }
   //string representation of the linked list
   public String toString(){
