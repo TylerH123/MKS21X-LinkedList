@@ -123,19 +123,12 @@ public class MyLinkedList{
       length++;
     }
     else{
-      Node tgt = start;
-      int idx = 0;
-      while (tgt != null){
-        if (idx == index -1){
-          tgt.setNext(current);
-        }
-        if (idx == index + 1){
-          tgt.setPrev(current);
-          length++;
-        }
-        tgt = tgt.next();
-        idx++;
-      }
+      Node prevNode = getNthNode(index-1);
+      Node oldNode = getNthNode(index);
+      prevNode.setNext(current);
+      oldNode.setPrev(current);
+      current.setNext(oldNode);
+      current.setPrev(prevNode);
     }
   }
   //get the nth node of the linked MyLinkedList
