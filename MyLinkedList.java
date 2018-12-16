@@ -51,7 +51,7 @@ public class MyLinkedList{
   //make a new node that contains the value
   //then set the end to the new node
   //if the first element is null, then set the start to value
-  public boolean add(int value){
+  public boolean add(Integer value){
     Node newNode = new Node();
     newNode.setData(value);
     if (length == 0){
@@ -67,7 +67,7 @@ public class MyLinkedList{
   }
   //use getNthNode to get the node at the desired index
   //then set the data at the node to the new value
-  public int set(int index, int value){
+  public int set(int index, Integer value){
     if (index >= length || index < 0) throw new IndexOutOfBoundsException();
     int num = getNthNode(index).getData();
     getNthNode(index).setData(value);
@@ -75,7 +75,7 @@ public class MyLinkedList{
   }
   //loops through the linked list
   //if the data of the current node is equal to the value then return true
-  public boolean contains(int value){
+  public boolean contains(Integer value){
     Node curr = start;
     while (curr != null){
       if(curr.getData() == value){
@@ -92,7 +92,7 @@ public class MyLinkedList{
   }
   //loop through the linked list
   //if the data at current is equal to value return the index
-  public int indexOf(int value){
+  public int indexOf(Integer value){
     int idx = 0;
     Node curr = start;
     while (curr != null){
@@ -108,7 +108,7 @@ public class MyLinkedList{
   //if index is 0 insert at the beginning and set the next to the old start. set the prev to the new value
   //else at the deisred index set the previous node's next to the node with the desired value
   //also set forward node's prev to the node with the desired value
-  public void add(int index, int value){
+  public void add(int index, Integer value){
     if (index >= length || index < 0) throw new IndexOutOfBoundsException();
     Node current = new Node();
     current.setData(value);
@@ -168,7 +168,7 @@ public class MyLinkedList{
   }
   //if the list contains the value the remove it
   //else return false
-  public boolean remove2(int value){
+  public boolean remove(Integer value){
     if (contains(value)){
       remove(indexOf(value));
       return true;
