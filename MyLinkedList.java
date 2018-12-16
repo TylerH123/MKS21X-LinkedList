@@ -65,26 +65,13 @@ public class MyLinkedList{
     end = newNode;
     return true;
   }
-  //loops through the array until at the desired index
-  //then sets the next() of the previous node to the desired value
-  //also sets the prev() of the forward node to desired value
+  //use getNthNode to get the node at the desired index
+  //then set the data at the node to the new value
   public int set(int index, int value){
     if (index >= length || index < 0) throw new IndexOutOfBoundsException();
-    int idx = 0;
-    Node current = start;
-    Node tgt = new Node();
-    tgt.setData(value);
-    while(current != null){
-      if (idx == index-1){
-        current.setNext(tgt);
-      }
-      if (idx == index + 1){
-        current.setPrev(tgt);
-      }
-      idx++;
-      current = current.next();
-    }
-    return 1;
+    int num = getNthNode(index).getData();
+    getNthNode(index).setData(value);
+    return num;
   }
   //loops through the linked list
   //if the data of the current node is equal to the value then return true
@@ -98,8 +85,9 @@ public class MyLinkedList{
     }
     return false;
   }
-  //if the current node is at the desired index, return that node, otherwise go next
+  //use getNthNode to get the node at the index then return data
   public int get(int index){
+    if (index >= length || index < 0) throw new IndexOutOfBoundsException();
     return getNthNode(index).getData();
   }
   //loop through the linked list
