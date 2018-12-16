@@ -75,28 +75,35 @@ public class MyLinkedList{
   //else at the deisred index set the previous node's next to the node with the desired value
   //also set forward node's prev to the node with the desired value
   public void add(int index, Integer value){
-    if (index >= length || index < 0) throw new IndexOutOfBoundsException();
+    if (index > length || index < 0) throw new IndexOutOfBoundsException();
     Node current = new Node();
     current.setData(value);
-    if (length == 0 || index == length){
-      add(value);
+    if (length == 0){
+      start = current;
+      end = current;
+    }
+    if (index == length){
+      Node prevNode = getNthNode(index-1);
+      end = current;
+      end.setPrev(prevNode);
+      prevNode.setNext(end);
+      end.setNext(null);
     }
     if (index == 0 && length != 0){
       Node tgt = start;
       start = current;
       start.setNext(tgt);
       tgt.setPrev(start);
-      length++;
     }
-    else{
+    if (index > 0 && index < length){
       Node prevNode = getNthNode(index-1);
       Node oldNode = getNthNode(index);
       prevNode.setNext(current);
       oldNode.setPrev(current);
       current.setNext(oldNode);
       current.setPrev(prevNode);
-      length++;
     }
+    length++;
   }
   //get the nth node of the linked MyLinkedList
   private Node getNthNode(int idx){
