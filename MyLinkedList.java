@@ -9,6 +9,13 @@ public class MyLinkedList{
     start = new Node();
     end = new Node();
   }
+  //constructor takes array as param
+  public MyLinkedList(int[] ary){
+    for (int i = 0; i < ary.length; i++){
+      add(ary[i]);
+    }
+    length = ary.length;
+  }
   //return size of list
   public int size(){
     return length;
