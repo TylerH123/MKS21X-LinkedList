@@ -85,16 +85,9 @@ public class MyLinkedList{
     if (index > length || index < 0) throw new IndexOutOfBoundsException();
     Node current = new Node();
     current.setData(value);
-    if (length == 0){
-      start = current;
-      end = current;
-    }
-    if (index == length){
-      Node prevNode = getNthNode(index-1);
-      end = current;
-      end.setPrev(prevNode);
-      prevNode.setNext(end);
-      end.setNext(null);
+    if (length == 0 || index == length){
+      add(value);
+      length--;
     }
     if (index == 0 && length != 0){
       Node tgt = start;
