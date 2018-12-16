@@ -121,11 +121,13 @@ public class MyLinkedList{
       end = getNthNode(index - 1);
       getNthNode(index-1).setNext(null);
       length--;
+      return num;
     }
     if (index == 0){
       start = getNthNode(index + 1);
       getNthNode(index+1).setPrev(null);
       length--;
+      return num;
     }
     else{
       Node prevNode = getNthNode(index-1);
