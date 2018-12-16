@@ -49,12 +49,12 @@ public class MyLinkedList{
   //loops through the linked list
   //if the data of the current node is equal to the value then return true
   public boolean contains(Integer value){
-    Node curr = start;
-    while (curr != null){
-      if(curr.getData() == value){
+    Node current = start;
+    while (current != null){
+      if(current.getData() == value){
         return true;
       }
-      curr = curr.next();
+      current = current.next();
     }
     return false;
   }
