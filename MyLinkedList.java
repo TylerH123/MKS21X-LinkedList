@@ -173,18 +173,27 @@ public class MyLinkedList{
       current = current.next();
       index++;
     }
+    return current;
   }
 
   public int remove(int index){
     if (index >= length || index < 0) throw new IndexOutOfBoundsException();
-    idx = 0;
+    int idx = 0;
     Node current = start;
     while(current != null){
       if (idx == index - 1){
-        current.setNext(current.get(idx+1));
+        current.setNext(getNthNode(idx+1));
+      }
+      if (idx == index + 1){
+        current.setNext(getNthNode(idx-1));
+        length--;
+      }
+      if (idx == length){
+        return current.getData();
       }
       current = current.next();
     }
+    return -1;
   }
   //string representation of the linked list
   public String toString(){
