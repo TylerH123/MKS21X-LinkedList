@@ -145,25 +145,26 @@ public class MyLinkedList{
     }
     return current;
   }
-
+  //if the index is at the beginning or the end, then set the start or end to the next/prev Node
+  //else getNthNode of the prev node and next node and set the next and prev 
   public int remove(int index){
     if (index >= length || index < 0) throw new IndexOutOfBoundsException();
-    int idx = 0;
-    Node current = start;
-    while(current != null){
-      if (idx == index - 1){
-        current.setNext(getNthNode(idx+1));
-      }
-      if (idx == index + 1){
-        current.setNext(getNthNode(idx-1));
-        length--;
-      }
-      if (idx == length){
-        return current.getData();
-      }
-      current = current.next();
+    int num = getNthNode(index).getData();
+    if (index == length - 1){
+      end = getNthNode(index - 1);
+      getNthNode(index-1).setNext(null);
     }
-    return -1;
+    if (index == 0){
+      start = getNthNode(index + 1);
+    getNthNode(index+1).setPrev(null);
+    }
+    else{
+    Node prevNode = getNthNode(index-1);
+    Node nextNode = getNthNode(index+1);
+    prevNode.setNext(nextNode);
+    nextNode.setPrev(prevNode);
+    }
+    return num;
   }
   //string representation of the linked list
   public String toString(){
