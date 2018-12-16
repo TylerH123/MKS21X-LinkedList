@@ -146,7 +146,7 @@ public class MyLinkedList{
     return current;
   }
   //if the index is at the beginning or the end, then set the start or end to the next/prev Node
-  //else getNthNode of the prev node and next node and set the next and prev 
+  //else getNthNode of the prev node and next node and set the next and prev
   public int remove(int index){
     if (index >= length || index < 0) throw new IndexOutOfBoundsException();
     int num = getNthNode(index).getData();
@@ -165,6 +165,15 @@ public class MyLinkedList{
     nextNode.setPrev(prevNode);
     }
     return num;
+  }
+  //if the list contains the value the remove it
+  //else return false
+  public boolean remove2(int value){
+    if (contains(value)){
+      remove(indexOf(value));
+      return true;
+    }
+    return false;
   }
   //string representation of the linked list
   public String toString(){
