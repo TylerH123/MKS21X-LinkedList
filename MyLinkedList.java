@@ -67,12 +67,12 @@ public class MyLinkedList{
   //if the data at current is equal to value return the index
   public int indexOf(Integer value){
     int idx = 0;
-    Node curr = start;
-    while (curr != null){
-      if(curr.getData() == value){
+    Node current = start;
+    while (current != null){
+      if(current.getData() == value){
         return idx;
       }
-      curr = curr.next();
+      current = current.next();
       idx++;
     }
     return -1;
