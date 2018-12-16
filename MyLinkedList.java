@@ -100,17 +100,7 @@ public class MyLinkedList{
   }
   //if the current node is at the desired index, return that node, otherwise go next
   public int get(int index){
-    if (index >= length || index < 0) throw new IndexOutOfBoundsException();
-    Node current = start;
-    int idx = 0;
-    while(current != null){
-      if (idx == index){
-        return current.getData();
-      }
-      current = current.next();
-      idx++;
-    }
-    return 0;
+    return getNthNode(index).getData();
   }
   //loop through the linked list
   //if the data at current is equal to value return the index
@@ -161,7 +151,6 @@ public class MyLinkedList{
     }
   }
   //get the nth node of the linked MyLinkedList
-  //similar to method get
   private Node getNthNode(int idx){
     if (idx >= length || idx < 0) throw new IndexOutOfBoundsException();
     Node current = start;
