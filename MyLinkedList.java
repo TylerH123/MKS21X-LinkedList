@@ -89,7 +89,7 @@ public class MyLinkedList{
       add(value);
       length--;
     }
-    if (index == 0 && length != 0){
+    if (index == 0){
       Node tgt = start;
       start = current;
       start.setNext(tgt);
@@ -164,6 +164,34 @@ public class MyLinkedList{
       }
       else{
         out += current.getData() + ", ";
+        current = current.next();
+      }
+    }
+    return out + "]";
+  }
+  public String toStringBack(){
+    String out = "[";
+    Node current = end;
+    for (int i = 0; i < length; i++){
+      if (i == length - 1){
+        out += current.getData();
+      }
+      else{
+        out += current.getData() + ", ";
+        current = current.prev();
+      }
+    }
+    return out + "]";
+  }
+  public String nodesToString(){
+    String out = "[";
+    Node current = start;
+    for (int i = 0; i < length; i++){
+      if (i == length - 1){
+        out += "(" + current.prev() + ")" + current.getData() + "(" + current.next() + ")";
+      }
+      else{
+        out += "(" + current.prev() + ")" + current.getData() + "(" + current.next() + ")" + ", ";
         current = current.next();
       }
     }

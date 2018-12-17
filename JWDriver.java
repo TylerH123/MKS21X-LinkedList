@@ -18,7 +18,8 @@ public class JWDriver {
 		System.out.println(bean.toString());
 		System.out.println("Element at index 2 removed, old value: " + bean.remove(2));
 		System.out.println(bean.toString());
-
+    System.out.println(bean.toStringBack());
+    System.out.println(bean.nodesToString());
 		int[] fortnight = {};
 		MyLinkedList jeff = new MyLinkedList(fortnight);
         System.out.println("Created new MyLinkedList: " + jeff.toString());

@@ -83,6 +83,8 @@ public class Driver2{
     System.out.println("Add 0 to the 0th index: " + list);
     list.add(10, 11);
     System.out.println("Add 11 to the 10th index: " + list);
+    System.out.println(list.toStringBack());
+    System.out.println(list.nodesToString());
     System.out.println();
     System.out.println();
 
