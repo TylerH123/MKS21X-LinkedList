@@ -203,7 +203,13 @@ public class MyLinkedList{
   //set the next of the last node of the first list to the first node of other
   //set end to the last node of other
   public void extend(MyLinkedList other){
-    if (other.length > 0) {
+    if (length == 0){
+      start = other.start;
+      end = other.end;
+      length = other.length;
+      other.length = 0;
+    }
+    else if (other.length > 0) {
       other.getNthNode(0).setPrev(getNthNode(length - 1));
       getNthNode(length - 1).setNext(other.getNthNode(0));
       end = other.getNthNode(other.length - 1);
