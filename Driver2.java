@@ -108,6 +108,7 @@ public class Driver2{
     System.out.println("Current list: " + list);
     System.out.println();
     System.out.println();
+    
     System.out.println("---- Testing Extend with two LinkedLists: a and b----");
     MyLinkedList a = new MyLinkedList();
     MyLinkedList b = new MyLinkedList();
