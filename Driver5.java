@@ -1,4 +1,4 @@
-public class Driver2{
+public class Driver5 {
   public static void main(String[] args) {
 
     System.out.println("---------TESTING MYLINKEDLIST ---------");
@@ -62,10 +62,13 @@ public class Driver2{
 
     System.out.println("---- Testing contains and indexOf ----");
     System.out.println();
+    System.out.println("Current list: " + list);
     System.out.println("list.contains(6) should print true: " + list.contains(6));
     System.out.println("list.contains(70) should print false: " + list.contains(70));
     System.out.println("list.indexOf(4) should print 3: " + list.indexOf(4));
     System.out.println("list.indexOf(50) should print -1: " + list.indexOf(50));
+    System.out.println("list.indexOf(1) should print 0: " + list.indexOf(1));
+    System.out.println("list.indexOf(10) should print 9: " + list.indexOf(10));
     System.out.println();
     System.out.println();
 
@@ -83,8 +86,6 @@ public class Driver2{
     System.out.println("Add 0 to the 0th index: " + list);
     list.add(10, 11);
     System.out.println("Add 11 to the 10th index: " + list);
-    System.out.println(list.toStringBack());
-    System.out.println(list.nodesToString());
     System.out.println();
     System.out.println();
 
@@ -108,6 +109,37 @@ public class Driver2{
     System.out.println("Current list: " + list);
     System.out.println();
     System.out.println();
+
+    System.out.println("---- Testing Extend with two LinkedLists: a and b----");
+    MyLinkedList a = new MyLinkedList();
+    MyLinkedList b = new MyLinkedList();
+    for (int x = 0; x < 5; x++) {
+      a.add(x);
+      b.add(x+5);
+    }
+    System.out.println("linkedlist a should be [0, 1, 2, 3, 4]: " + a);
+    System.out.println("linkedlist b should be [5, 6, 7, 8, 9]: " + b);
+    a.extend(b);
+    System.out.println("After a.extend(b), a should be [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]: " + a);
+    System.out.println("After extending, b should be []: " + b);
+    System.out.println("Size of a should be 10: " + a.size());
+    System.out.println("Size of b should be 0: " + b.size());
+    System.out.println();
+    a.extend(b);
+    System.out.println("Trying to extend b (now empty) to a, a should be the same: " + a);
+    System.out.println("b should still be []: " + b);
+    System.out.println();
+    System.out.println("----Changing a and b----");
+    a = new MyLinkedList();
+    b.add(5);
+    b.add(7);
+    System.out.println("a should be []: " + a);
+    System.out.println("b should be [5, 7]: " + b);
+    a.extend(b);
+    System.out.println("after a.extend(b), a should be [5, 7]: " + a);
+    System.out.println("b should still be []: " + b);
+    System.out.println("size of a should be 2: " + a.size());
+    System.out.println("size of b should be 0: " + b.size());
     System.out.println("--------- END OF TEST ----------");
 
   }
